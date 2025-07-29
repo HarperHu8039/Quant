@@ -10,17 +10,15 @@ end_date = None
 
 # 策略明细
 strategy = {
-    "name": "小市值策略",  # 策略名
-    "hold_period": "W",  # 持仓周期，W 代表周，M 代表月
-    "select_num": 1,  # 选股数量，可以是整数，也可以是小数，比如 0.1 表示选取 10% 的股票
-    "factor_list": [  # 选股因子列表
-        # ** 因子格式说明 **
-        # 因子名称（与 '因子库' 文件中的名称一致），排序方式（True 为升序，False 为降序），因子参数，因子权重
-        ("市值", True, None, 1),
-        # 案例说明：使用'市值.py'因子，从小到大排序（越小越是我想要），None表示无额外参数，后面计算复合选股因子的时候权重为1
-        # 可添加多个选股因子
+    "name": "均值回归策略",
+    "hold_period": "W",
+    "select_num": 20,
+    "factor_list": [
+        ("ZScore20", False, None, 1),
+        ("MACDHist", False, None, 1),
+        ("Momentum20", False, None, 1)
     ],
-    "filter_list": [],  # 过滤因子列表
+    "filter_list": [],
 }
 
 # 💡运行提示：
