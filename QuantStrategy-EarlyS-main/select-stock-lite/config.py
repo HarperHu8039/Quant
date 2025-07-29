@@ -57,3 +57,10 @@ if Path(stock_data_path).exists() is False:
 if Path(index_data_path).exists() is False:
     print(f"指数数据路径不存在：{index_data_path}，请检查配置，程序退出")
     exit()
+
+# =====新增：策略控制参数=====
+strategy_name = "mean_reversion"  # ← 这里控制主程序选择哪个策略模块执行
+
+# 针对 mean_reversion 策略的参数（用于 rebalance）
+max_hold = 10
+min_cash_per_stock = 10000
