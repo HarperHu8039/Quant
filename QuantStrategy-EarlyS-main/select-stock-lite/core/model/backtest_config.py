@@ -269,9 +269,12 @@ class BacktestConfigFactory:
         return config_list
 
 
-def load_config() -> BacktestConfig:
-    return BacktestConfig.init_from_config()
+from strategy_library.mean_reversion import MeanReversionStrategy  
 
+def load_config() -> BacktestConfig:
+    conf = BacktestConfig.init_from_config()  
+    conf.strategy = MeanReversionStrategy()   
+    return conf
 
 def create_factory(strategies):
     factory = BacktestConfigFactory()
